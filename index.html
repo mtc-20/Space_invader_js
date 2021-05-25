@@ -1,0 +1,42 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Invaders</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P"> <!-- Fonts (Google)-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<!-- Set up audio sources here -->
+<audio id="bgm">
+    <source src="audio/8_Bit_Retro_Funk_-_www.FesliyanStudios.com_David_Renda.mp3" type="audio/mpeg"> <!--Taken from https://www.fesliyanstudios.com/royalty-free-music/downloads-c/8-bit-music/6 -->
+</audio>
+<audio id="laser_fire">
+    <source src="audio/laserfire01.ogg" type="audio/ogg"> <!--Taken from  -->
+</audio>
+<audio id="win_sound">
+    <source src="audio/Win_sound.wav" type="audio/wav"> <!--Taken from  -->
+</audio>
+<audio id="boom_sound">
+    <source src="audio/invaderkilled.wav" type="audio/wav">
+</audio>
+
+
+<body>
+    <div class="header"><h1>SPACE INVADER</h1></div>
+    <h1 class="results">0</h1>
+    <div class="grid"></div>
+    <script src="app.js"></script>
+</body>
+
+
+<footer>
+    <div class="footer">
+        Made by <a href="https://github.com/mtc-20" target="_blank"> @mtc-20</a> <img src="image/LogoMakr_8f5eUt.png" width="25px" height="25px" style="vertical-align: bottom;">
+        <!-- <p>Based on Ania Kubow's tutorial</p> -->
+    </div>
+</footer>
+</html>

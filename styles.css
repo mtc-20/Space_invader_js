@@ -1,0 +1,63 @@
+html {font-size: 100%;
+    width: fit-content;
+    font-family: 'Press Start 2P';
+    height: fit-content;}
+    
+.header{
+    text-align: center;
+    font-family: 'Press Start 2P';
+    font-size: 1.5rem;
+    color: rgb(95, 25, 160);
+    text-shadow: 7px 5px 12px rgba(0,0,0,0.5);
+}
+
+.results{
+    /* text-align: center; */
+    font-family: 'Press Start 2P';
+    /* font-size: 1.5rem; */
+    /* color: rgb(95, 25, 160); */
+    /* text-shadow: 7px 5px 12px rgba(0,0,0,0.5); */
+}
+
+.grid{
+    width: 300px;
+    height: 300px;
+    border: solid black 5px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: midnightblue;
+    background-image: url("image/png/Background/starBackground.png");
+}
+
+.grid div{
+    width: 20px;
+    height: 20px;
+}
+
+.invader {
+    /* background-color: magenta;
+    border-radius: 10px; */
+    background-image: url("image/png/enemyShip.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.shooter{
+    /* background-color: red; */
+    background-image: url("image/png/player.png");
+    background-size: contain;
+}
+
+.laser{
+    /* background-color:orange; */
+    background-image: url("image/png/laserRed.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.boom{
+    /* background-color:yellow;
+    border: solid orange; */
+    background-image: url("image/png/laserRedShot.png");
+    background-size: contain;
+}
