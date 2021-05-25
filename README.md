@@ -7,5 +7,7 @@ A simple Tetris game made in Javascript based on the tutorial by Ania Kubow @kub
 - Art (and some audio fx) taken from [OpenGameArt](https://opengameart.org/content/space-shooter-art) 
 
 
-##TODO
+## TODO
+- [ ] Add touchscreen support
 - [ ] Will think about levels and stuff later, hopefully.
+- [ ] Add powerups and/or life
