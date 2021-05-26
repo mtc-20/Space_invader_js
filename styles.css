@@ -1,11 +1,16 @@
-html {font-size: 100%;
+html {
+    font-size: 100%;
     width: fit-content;
     font-family: 'Press Start 2P';
     height: fit-content;}
+
+body {
+    height: fit-content;
+}
     
 .header{
     text-align: center;
-    font-family: 'Press Start 2P';
+    /* font-family: 'Press Start 2P'; */
     font-size: 1.5rem;
     color: rgb(95, 25, 160);
     text-shadow: 7px 5px 12px rgba(0,0,0,0.5);
@@ -20,18 +25,19 @@ html {font-size: 100%;
 }
 
 .grid{
-    width: 300px;
-    height: 300px;
+    width: 30rem;
+    height: 30rem;
     border: solid black 5px;
     display: flex;
     flex-wrap: wrap;
     background-color: midnightblue;
     background-image: url("image/png/Background/starBackground.png");
+    margin: 0 auto;
 }
 
 .grid div{
-    width: 20px;
-    height: 20px;
+    width: 2rem;
+    height: 2rem;
 }
 
 .invader {
@@ -61,3 +67,47 @@ html {font-size: 100%;
     background-image: url("image/png/laserRedShot.png");
     background-size: contain;
 }
+
+.menu{
+    height: 10rem;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    align-items: center;
+    vertical-align: middle;
+    margin: 0 auto;
+}
+
+.menu div{
+    height: 6rem;
+    width: 6rem;
+    border: outset 0.8rem maroon;
+    text-align: center;
+    background-color: brown;
+    line-height: 3rem;
+    margin-right: 0.75rem;
+    border-radius: 10%;
+}
+
+.menu div:hover {
+    background: lightsalmon;
+}
+
+.menu div:active{
+    transform: translate(0.5rem, 0.2rem) ;
+    background-color: darkred;
+}
+
+
+.footer{
+    text-align: right;
+}
+
+/* button {
+    margin-top: 20px;
+    line-height: 60px;
+    font-weight: bold;
+    padding: 0 40px;
+    background: salmon;
+    border: none;
+  } */
