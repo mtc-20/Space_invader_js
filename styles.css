@@ -5,7 +5,8 @@ html {
     height: fit-content;}
 
 body {
-    height: fit-content;
+    height: 100%;
+    width: 100%;
 }
     
 .header{
@@ -33,6 +34,7 @@ body {
     background-color: midnightblue;
     background-image: url("image/png/Background/starBackground.png");
     margin: 0 auto;
+    touch-action: manipulation;
 }
 
 .grid div{
