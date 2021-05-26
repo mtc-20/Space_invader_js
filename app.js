@@ -62,7 +62,93 @@ const laserSound = document.getElementById('boom_sound')
 // laserSound.volume = 0.5
 laserSound.loop = false
 
+// Touch events
+   
+var xDown = null
+var yDown = null
 
+function getTouches(evt) {
+    return evt.touches
+}
+
+function handleStart(evt) {
+    const firstTouch = getTouches(evt)[0]
+    xDown = firstTouch.clientX
+    yDown = firstTouch.clientY
+    // console.log(xDown, yDown)
+}
+
+function handleMove(evt) {
+    if (!xDown || !yDown) {
+        return
+    }
+    var xUp = evt.touches[0].clientX
+    var yUp = evt.touches[0].clientY
+
+    var xDiff = xDown - xUp
+    var yDiff = yDown - yUp
+
+    if(Math.abs(xDiff)> Math.abs(yDiff)) {
+        if (xDiff > 0) {
+            // console.log('left swipe')
+            moveLeft()
+        }
+        else {
+            // console.log('Right swipe')
+            moveRight()
+        }
+    }
+
+    xDown = null
+    yDown = null
+}
+
+
+function moveLeft() {
+    squares[currentShooterIndex].classList.remove('shooter')
+    if(currentShooterIndex%width !==0) currentShooterIndex-=1
+    squares[currentShooterIndex].classList.add('shooter')
+}
+
+function moveRight() {
+    squares[currentShooterIndex].classList.remove('shooter')
+    if(currentShooterIndex%width <width-1) currentShooterIndex += 1
+    squares[currentShooterIndex].classList.add('shooter')
+}
+
+function generalShoot(e) {
+    let laserID
+    let currentLaserIndex = currentShooterIndex
+    function moveLaser() {
+        squares[currentLaserIndex].classList.remove('laser')
+        currentLaserIndex -= width
+        squares[currentLaserIndex].classList.add('laser')
+
+        if(squares[currentLaserIndex].classList.contains('invader')) {
+            squares[currentLaserIndex].classList.remove('laser')
+            squares[currentLaserIndex].classList.remove('invader')
+            squares[currentLaserIndex].classList.add('boom')
+            boomSound.play()
+
+            setTimeout(()=> squares[currentLaserIndex].classList.remove('boom'), 100)
+            clearInterval(laserID)
+
+            const alienRemoved = alienInvaders.indexOf(currentLaserIndex)
+            aliensRemoved.push(alienRemoved)
+            results++
+            resultsDisplay.innerHTML = results
+
+        }
+    }
+    
+    laserSound.play()
+    laserID = setInterval(moveLaser, 100)
+    
+}
+
+document.addEventListener('touchstart', handleStart, false)
+document.addEventListener('touchmove', handleMove, false)
+document.addEventListener('click', generalShoot)
 
 for (let i =0; i<255; i++) {
     const square = document.createElement('div')
@@ -201,60 +287,3 @@ document.addEventListener('keypress', (event)=>{if(String.fromCharCode(event.key
 
 // Touch events
 
-// Touch events
-   
-var xDown = null
-var yDown = null
-
-function getTouches(evt) {
-    return evt.touches
-}
-
-function handleStart(evt) {
-    const firstTouch = getTouches(evt)[0]
-    xDown = firstTouch.clientX
-    yDown = firstTouch.clientY
-    // console.log(xDown, yDown)
-}
-
-function handleMove(evt) {
-    if (!xDown || !yDown) {
-        return
-    }
-    var xUp = evt.touches[0].clientX
-    var yUp = evt.touches[0].clientY
-
-    var xDiff = xDown - xUp
-    var yDiff = yDown - yUp
-
-    if(Math.abs(xDiff)> Math.abs(yDiff)) {
-        if (xDiff > 0) {
-            // console.log('left swipe')
-            moveLeft()
-        }
-        else {
-            // console.log('Right swipe')
-            moveRight()
-        }
-    }
-
-    xDown = null
-    yDown = null
-}
-
-
-function moveLeft() {
-    squares[currentShooterIndex].classList.remove('shooter')
-    if(currentShooterIndex%width !==0) currentShooterIndex-=1
-    squares[currentShooterIndex].classList.add('shooter')
-}
-
-function moveRight() {
-    squares[currentShooterIndex].classList.remove('shooter')
-    if(currentShooterIndex%width <width-1) currentShooterIndex += 1
-    squares[currentShooterIndex].classList.add('shooter')
-}
-
-document.addEventListener('touchstart', handleStart, false)
-document.addEventListener('touchmove', handleMove, false)
-document.addEventListener('click', shoot)
